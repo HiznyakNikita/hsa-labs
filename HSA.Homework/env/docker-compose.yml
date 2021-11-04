@@ -1,0 +1,85 @@
+version: '3.8'
+services:
+
+  reverseproxy:
+    container_name: hsa-reverseproxy
+    build:
+      context: ./nginx
+      dockerfile: nginx.dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    
+  hsahomeworkweb:
+    build:
+      context: ../.
+      dockerfile: ./src/HSA.Homework.Web/Dockerfile
+    depends_on:
+      - reverseproxy
+    container_name: hsahomeworkweb
+    ports:
+      - 5000:80
+      
+  influxdb:
+    image: 'influxdb:1.8.6'
+    container_name: influxdb
+    ports:
+      - '8083:8083'
+      - '8086:8086'
+      - '8090:8090'
+      - '2003:2003'
+    env_file:
+      - env.influxdb
+    volumes:
+      - '/srv/docker/influxdb/data:/var/lib/influxdb'
+
+  telegraf:
+    image: 'telegraf:latest'
+    container_name: telegraf
+    links:
+      - influxdb
+    volumes:
+      - './telegraf.conf:/etc/telegraf/telegraf.conf:ro'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+
+  grafana:
+    image: 'grafana/grafana:latest'
+    container_name: grafana
+    ports:
+      - '3000:3000'
+    env_file:
+      - env.grafana
+    user: '0'
+    links:
+      - influxdb
+    volumes:
+      - '/srv/docker/grafana/data:/var/lib/grafana'
+      
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-data:/data/db
+
+  postgres:
+    container_name: postgres
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      PGDATA: /data/postgres
+    volumes:
+       - ./postgres_init.sql:/docker-entrypoint-initdb.d/postgres_init.sql
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    
+    
+volumes:
+  postgres:
+    driver: local
+  mongodb-data:
