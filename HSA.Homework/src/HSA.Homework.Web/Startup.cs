@@ -1,4 +1,5 @@
 using HSA.Homework.Web.Core.Services;
+using HSA.Homework.Web.Core.Services.Background;
 using HSA.Homework.Web.Core.Settings;
 using HSA.Homework.Web.Datalayer.Mongo;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +32,12 @@ namespace HSA.Homework.Web
 			//Services
 			services.AddTransient<ITicketsService, TicketsService>();
 			services.AddTransient<IBookingsService, BookingsService>();
+			services.AddTransient<IGAService, GAService>();
+
+			services.AddHttpClient<ICurrencyRateService, CurrencyRateService>();
+
+			//Hosted services
+			services.AddHostedService<GACurrencyRateHostedService>();
 
 			services.AddDbContext<AirlinesDbContext>(options =>
 				options.UseNpgsql(Configuration.GetConnectionString("PostgreSQLConnection")));
