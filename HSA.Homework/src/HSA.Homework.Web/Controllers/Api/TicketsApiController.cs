@@ -32,5 +32,12 @@ namespace HSA.Homework.Web.Controllers.Api
         {
             return (await _ticketsService.AllMongo()).ToList();
         }
+
+        [HttpPost("create/batch/mongo")]
+        public async Task<ActionResult> CreateTicketsBatchMongo(IEnumerable<Ticket> tickets)
+        {
+            await _ticketsService.BatchCreateMongo(tickets.ToList());
+            return Ok();
+        }
     }
 }

@@ -18,5 +18,7 @@ namespace HSA.Homework.Web.Core.Services
         Task Delete(string id);
 
         Task<long> SyncBenchmark(int count = 1000);
+
+        Task BatchCreateMongo(List<Ticket> tickets);
     }
 }

@@ -23,6 +23,8 @@ namespace HSA.Homework.Web
 
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddMemoryCache();
+
 			//Configure options
 			services.Configure<MongoSettings>(Configuration.GetSection("MongoSettings"));
 

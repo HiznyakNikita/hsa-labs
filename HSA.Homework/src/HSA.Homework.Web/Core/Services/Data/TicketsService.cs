@@ -104,5 +104,10 @@ namespace HSA.Homework.Web.Core.Services
 
             return stopwatch.ElapsedMilliseconds;
         }
+
+        public async Task BatchCreateMongo(List<Ticket> tickets)
+        {
+            await _mongoTicketRepository.Insert(tickets);
+        }
     }
 }
