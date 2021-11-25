@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "RfsNE1FkGwgMx8q5O4EnjKE1wSIrmZHUiLoCmmkcQeOGELptvv+usrnvp54v0d1GXVli7PVqkZSKsaZScO6XEg==",
+  "success": true,
+  "projectFilePath": "C:\\dev\\hsa-labs\\lab7\\src\\hsa-lab7\\hsa-lab7.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+  ],
+  "logs": []
+}

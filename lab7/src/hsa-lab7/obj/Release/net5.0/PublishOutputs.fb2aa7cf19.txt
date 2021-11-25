@@ -1,0 +1,9 @@
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\hsa-lab7.exe
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\appsettings.json
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\static\images\liverpool.png
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\static\images\manchester.png
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\hsa-lab7.dll
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\hsa-lab7.deps.json
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\hsa-lab7.runtimeconfig.json
+C:\dev\hsa-labs\lab7\src\hsa-lab7\obj\Release\net5.0\PubTmp\Out\hsa-lab7.pdb
